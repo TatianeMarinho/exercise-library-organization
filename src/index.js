@@ -7,13 +7,17 @@ const fantasyOrScienceFiction = () => {
 };
 fantasyOrScienceFiction();
 
-const oldBooksOrdered = (year) => {
-  // escreva seu código aqui
-};
+const oldBooksOrdered = (year) => books
+  .filter((book) => (year - book.releaseYear) >= 60)
+  .sort((yearA, yearB) => (yearA.releaseYear - yearB.releaseYear));
 
-const booksByAuthorBirthYear = (birthYear) => {
-  // escreva seu código aqui
-};
+oldBooksOrdered(2020);
+
+const booksByAuthorBirthYear = (birthYear) => books
+  .filter((book) => book.author.birthYear === birthYear)
+  .map((element) => element.name);
+
+console.log(booksByAuthorBirthYear(1920));
 
 const fantasyOrScienceFictionAuthors = () => {
   // escreva seu código aqui
