@@ -2,8 +2,10 @@ const { books } = require('../data/library');
 
 // Requisito 1
 const fantasyOrScienceFiction = () => {
-  // escreva seu código aqui
+  const generos = ['Fantasia', 'Ficção Científica'];
+  return books.filter((book) => generos.includes(book.genre));
 };
+fantasyOrScienceFiction();
 
 const oldBooksOrdered = (year) => {
   // escreva seu código aqui
