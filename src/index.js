@@ -5,7 +5,6 @@ const fantasyOrScienceFiction = () => {
   const generos = ['Fantasia', 'Ficção Científica'];
   return books.filter((book) => generos.includes(book.genre));
 };
-fantasyOrScienceFiction();
 
 const oldBooksOrdered = (year) => books
   .filter((book) => (year - book.releaseYear) >= 60)
@@ -17,19 +16,27 @@ const booksByAuthorBirthYear = (birthYear) => books
   .filter((book) => book.author.birthYear === birthYear)
   .map((element) => element.name);
 
-console.log(booksByAuthorBirthYear(1920));
+booksByAuthorBirthYear(1920);
 
-const fantasyOrScienceFictionAuthors = () => {
-  // escreva seu código aqui
-};
+const fantasyOrScienceFictionAuthors = () =>
+  fantasyOrScienceFiction()
+    .map((book) => book.author.name)
+    .sort();
 
-const oldBooks = (year) => {
-  // escreva seu código aqui
-};
+fantasyOrScienceFictionAuthors();
 
-const authorWith3DotsOnName = () => {
-  // escreva seu código aqui
-};
+const oldBooks = (year) => books
+  .filter((book) => (year - book.releaseYear) >= 60)
+  .map((element) => element.name);
+
+oldBooks(2022);
+
+const authorWith3DotsOnName = () => books
+  .find((book) => (book.author.name
+    .split(' ').filter((inicial) => inicial.endsWith('.')).length === 3
+  )).name;
+
+console.log(authorWith3DotsOnName());
 
 module.exports = {
   fantasyOrScienceFiction,
